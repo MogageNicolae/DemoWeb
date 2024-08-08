@@ -7,10 +7,10 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
   server: {
-    port: Number(process.env.PORT) || 3000,
+    port: Number(process.env.PORT) || 3001,
     strictPort: true,
     host: true,
-    https: true,
+    https: false,
     watch: {
       usePolling: false,
       useFsEvents: false
