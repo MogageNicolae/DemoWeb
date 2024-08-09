@@ -29,7 +29,7 @@ export const useAcceptOfferTransaction = () => {
         }
     }
 
-    const onAcceptedOffer = async ({
+    const onAcceptOffer = async ({
         offerId,
         paymentToken,
         paymentTokenAmount
@@ -61,7 +61,7 @@ export const useAcceptOfferTransaction = () => {
 
     return {
         getAcceptedTransaction,
-        onAcceptedOffer
+        onAcceptOffer
     };
 
 };
