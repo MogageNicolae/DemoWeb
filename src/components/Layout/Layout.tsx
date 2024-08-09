@@ -6,10 +6,12 @@ import { routes } from 'routes/routes';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { useFetchUserTokens } from 'hooks';
+import { useSetupInterceptors } from 'hooks/useSetupInterceptors';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const { search } = useLocation();
 
+  useSetupInterceptors();
   useFetchUserTokens();
 
   return (
