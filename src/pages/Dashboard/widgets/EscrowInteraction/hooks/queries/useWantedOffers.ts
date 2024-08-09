@@ -24,12 +24,12 @@ export const useWantedOffers = () => {
       return {
         ...offer,
         offerPayment: {
-          ...offer.offerPayment,
-          numDecimals: resolveDecimals(offer.offerPayment.tokenIdentifier)
+          ...offer.offeredPayment,
+          numDecimals: resolveDecimals(offer.offeredPayment.tokenIdentifier)
         },
         acceptOfferPayment: {
-          ...offer.acceptOfferPayment,
-          numDecimals: resolveDecimals(offer.acceptOfferPayment.tokenIdentifier)
+          ...offer.acceptedPaymenet,
+          numDecimals: resolveDecimals(offer.acceptedPaymenet.tokenIdentifier)
         }
       };
     });

@@ -5,7 +5,7 @@ export const CreatedOffers = () => {
   const { createdOffers } = useCreatedOffers();
   const { onCancelOffer } = useCancelTransaction();
 
-  if (!CreatedOffers.length) {
+  if (createdOffers.length === 0) {
     return (
       <div className='flex items-center justify-center h-full'>
         <p className='text-gray-500'> No created offers</p>
@@ -17,12 +17,14 @@ export const CreatedOffers = () => {
     <div className='flex bg-gray-50 h-full overflow-x-auto'>
       <table className='text-sm w-full max-w-4xl mx-auto overflow-hidden bg-white divide-y divide-gray-300 rounded-lg'>
         <thead className='bg-gray-500'>
-          <tr className='px-6 py-4 font-semibold'>Offer ID</tr>
-          <tr className='px-6 py-4 font-semibold'>Creator</tr>
-          <tr className='px-6 py-4 font-semibold'>Offered</tr>
-          <tr className='px-6 py-4 font-semibold'>Accepted</tr>
-          <tr className='px-6 py-4 font-semibold'>Destination Address</tr>
-          <tr className='px-6 py-4 font-semibold text-center'>Actions</tr>
+          <tr className='text-left text-white text-xs'>
+            <th className='px-6 py-4 font-semibold'>Offer ID</th>
+            <th className='px-6 py-4 font-semibold'>Creator</th>
+            <th className='px-6 py-4 font-semibold'>Offered</th>
+            <th className='px-6 py-4 font-semibold'>Accepted</th>
+            <th className='px-6 py-4 font-semibold'>Destination Address</th>
+            <th className='px-6 py-4 font-semibold text-center'>Actions</th>
+          </tr>
         </thead>
         <tbody className='divide-y divide-gray-200'>
           {createdOffers.map((offer) => (
@@ -36,19 +38,13 @@ export const CreatedOffers = () => {
                 <p className='break-all'>{offer.creator}</p>
               </td>
               <td className='px-3 py-4 text-center'>
-                {`${formatAmount({
-                  input: offer.offerPayment.amount,
-                  decimals: Number(offer.offerPayment.numDecimals)
-                })} ${offer.offerPayment.tokenIdentifier}`}
+                {`${offer.offeredPayment.amount} - ${offer.offeredPayment.tokenIdentifier}`}
               </td>
               <td className='px-3 py-4 text-center'>
-                {`${formatAmount({
-                  input: offer.acceptOfferPayment.amount,
-                  decimals: Number(offer.acceptOfferPayment.numDecimals)
-                })} ${offer.acceptOfferPayment.tokenIdentifier}`}
+                {`${offer.acceptedPaymenet.amount} - ${offer.acceptedPaymenet.tokenIdentifier}`}
               </td>
               <td className='px-3 py-4 break-all' style={{ maxWidth: '10rem' }}>
-                <p className='break-all'>{offer.acceptedOffer}</p>
+                <p className='break-all'>{offer.acceptedAddress}</p>
               </td>
               <td>
                 <button
@@ -60,6 +56,21 @@ export const CreatedOffers = () => {
                   Cancel
                 </button>
               </td>
+              {/* 
+              <td className='px-3 py-4 text-center'>
+                {`${formatAmount({
+                    input: offer.offeredPayment.amount,
+                    decimals: Number(offer.offeredPayment.numDecimals)
+                    })} ${offer.offeredPayment.tokenIdentifier}`}
+              </td>
+              <td className='px-3 py-4 text-center'>
+                {`${formatAmount({
+                  input: offer.acceptedPaymenet.amount,
+                  decimals: Number(offer.acceptedPaymenet.numDecimals)
+                })} ${offer.acceptedPaymenet.tokenIdentifier}`}
+              </td>
+              
+               */}
             </tr>
           ))}
         </tbody>

@@ -1,13 +1,11 @@
-import axios from "axios"
+import axios from 'axios';
 
-export const setupInterceptors =  (authToken: string ) => {
-    axios.interceptors.request.use(async (config) => {
-        {
-            config.headers.set('Authorization', `Bearer ${authToken}`);
-            console.log(config);
-            return config;
-        }
-    })
-        
-
-}
+export const setupInterceptors = (authToken: string) => {
+  axios.interceptors.request.use(async (config) => {
+    {
+      config.headers.set('Authorization', `Bearer ${authToken}`);
+      // console.log(config);
+      return config;
+    }
+  });
+};

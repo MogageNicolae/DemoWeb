@@ -36,15 +36,15 @@ export const WantedOffers = () => {
               </td>
               <td className='px-3 py-4 text-center'>
                 {`${formatAmount({
-                  input: offer.offerPayment.amount,
-                  decimals: Number(offer.offerPayment.numDecimals)
-                })} ${offer.offerPayment.tokenIdentifier}`}
+                  input: offer.offeredPayment.amount,
+                  decimals: Number(offer.offeredPayment.numDecimals)
+                })} ${offer.offeredPayment.tokenIdentifier}`}
               </td>
               <td className='px-3 py-4 text-center'>
                 {`${formatAmount({
-                  input: offer.acceptOfferPayment.amount,
-                  decimals: Number(offer.acceptOfferPayment.numDecimals)
-                })} ${offer.acceptOfferPayment.tokenIdentifier}`}
+                  input: offer.acceptedPaymenet.amount,
+                  decimals: Number(offer.acceptedPaymenet.numDecimals)
+                })} ${offer.acceptedPaymenet.tokenIdentifier}`}
               </td>
               <td>
                 <button
@@ -52,8 +52,8 @@ export const WantedOffers = () => {
                   onClick={() => {
                     onAcceptOffer({
                       offerId: offer.offerId,
-                      paymentToken: offer.acceptOfferPayment.tokenIdentifier,
-                      paymentTokenAmount: offer.acceptOfferPayment.amount
+                      paymentToken: offer.acceptedPaymenet.tokenIdentifier,
+                      paymentTokenAmount: offer.acceptedPaymenet.amount
                     });
                   }}
                 ></button>

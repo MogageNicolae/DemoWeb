@@ -17,19 +17,20 @@ export const useCreatedOffers = () => {
 
   const getCreatedOffers = useCallback(async () => {
     const response = await axios.get<OfferType[]>(
-      ESCROW_API_SERIVCE_URL + '/offers/created'
+      ESCROW_API_SERIVCE_URL + '/offers/created',
+      { headers: { Origin: 'https://localhost:3001' } }
     );
 
     const offers = response.data.map((offer) => {
       return {
         ...offer,
         offerPayment: {
-          ...offer.offerPayment,
-          numDecimals: resolveDecimals(offer.offerPayment.tokenIdentifier)
+          ...offer.offeredPayment,
+          numDecimals: resolveDecimals(offer.offeredPayment.tokenIdentifier)
         },
         acceptOfferPayment: {
-          ...offer.acceptOfferPayment,
-          numDecimals: resolveDecimals(offer.acceptOfferPayment.tokenIdentifier)
+          ...offer.acceptedPaymenet,
+          numDecimals: resolveDecimals(offer.acceptedPaymenet.tokenIdentifier)
         }
       };
     });
