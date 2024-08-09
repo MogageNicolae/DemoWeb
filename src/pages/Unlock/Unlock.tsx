@@ -63,27 +63,27 @@ export const Unlock = () => {
               loginButtonText='xPortal App'
               {...commonProps}
             />
-            <LedgerLoginButton loginButtonText='Ledger' {...commonProps} />
+            {/* <LedgerLoginButton loginButtonText='Ledger' {...commonProps} /> */}
             <ExtensionLoginButton
               loginButtonText='DeFi Wallet'
               {...commonProps}
             />
-            <OperaWalletLoginButton
+            {/* <OperaWalletLoginButton
               loginButtonText='Opera Crypto Wallet - Beta'
               {...commonProps}
-            />
-            <XaliasCrossWindowLoginButton
+            /> */}
+            {/* <XaliasCrossWindowLoginButton
               loginButtonText='xAlias'
               data-testid='xAliasLoginBtn'
               customWalletAddress='https://127.0.0.1:3000'
               {...commonProps}
-            />
+            /> */}
             <XaliasLoginWrapper {...commonProps} />
             <WebWalletLoginWrapper {...commonProps} />
-            <MetamaskProxyButton
+            {/* <MetamaskProxyButton
               loginButtonText='Metamask Proxy'
               {...commonProps}
-            />
+            /> */}
           </div>
         </div>
       </div>

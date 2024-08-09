@@ -5,9 +5,13 @@ import { RouteNamesEnum } from 'localConstants/routes';
 import { routes } from 'routes/routes';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { useFetchUserTokens } from 'hooks';
 
 export const Layout = ({ children }: PropsWithChildren) => {
   const { search } = useLocation();
+
+  useFetchUserTokens();
+
   return (
     <div className='flex min-h-screen flex-col bg-slate-200'>
       <Header />
