@@ -6,3 +6,5 @@ export enum SessionEnum {
   abiPingPongServiceSessionId = 'abiPingPongServiceSessionId',
   batchId = 'batchId'
 }
+
+export const USER_TOKENS_KEY = 'userTokens';
